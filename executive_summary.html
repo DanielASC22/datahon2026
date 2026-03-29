@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>March Madness 2026 — Executive Summary</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: letter; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #14253d;
+    --slate: #1c3352;
+    --orange: #ff6b2b;
+    --orange-glow: #ff8f5e;
+    --gold: #ffc857;
+    --ice: #e8edf4;
+    --white: #ffffff;
+    --muted: #8a9bb5;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    width: 8.5in;
+    height: 11in;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Background texture */
+  body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 85% 15%, rgba(255,107,43,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 10% 90%, rgba(255,200,87,0.05) 0%, transparent 40%),
+      linear-gradient(180deg, var(--navy) 0%, #0d1e35 100%);
+    z-index: 0;
+  }
+
+  /* Court line accents */
+  body::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 200px; height: 200px;
+    border: 2px solid rgba(255,107,43,0.12);
+    border-radius: 50%;
+    transform: translate(60px, -60px);
+    z-index: 0;
+  }
+
+  .page { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; }
+
+  /* ── HEADER ── */
+  .header {
+    padding: 0.35in 0.5in 0.2in;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .header-left { flex: 1; }
+
+  .tag {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--orange);
+    background: rgba(255,107,43,0.1);
+    border: 1px solid rgba(255,107,43,0.25);
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin-bottom: 8px;
+  }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 34px;
+    letter-spacing: 1.5px;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 2px;
+  }
+
+  h1 span { color: var(--orange); }
+
+  .subtitle {
+    font-family: 'Source Serif 4', serif;
+    font-size: 12.5px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .header-right {
+    text-align: right;
+    padding-top: 5px;
+  }
+
+  .header-right .metric-box {
+    background: linear-gradient(135deg, rgba(255,107,43,0.15), rgba(255,107,43,0.05));
+    border: 1px solid rgba(255,107,43,0.3);
+    border-radius: 4px;
+    padding: 8px 14px;
+    text-align: center;
+    min-width: 120px;
+  }
+
+  .metric-box .metric-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--orange);
+    line-height: 1;
+  }
+
+  .metric-box .metric-label {
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* ── BODY ── */
+  .content {
+    flex: 1;
+    padding: 0.22in 0.5in 0.15in;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 14px 20px;
+  }
+
+  .section-full { grid-column: 1 / -1; }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+    letter-spacing: 2px;
+    color: var(--orange);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255,107,43,0.3), transparent);
+  }
+
+  .section p, .section li {
+    font-size: 10px;
+    line-height: 1.55;
+    color: var(--ice);
+  }
+
+  .section p { margin-bottom: 5px; }
+
+  /* ── SEED CHART ── */
+  .seed-chart {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 3px;
+    margin-top: 6px;
+  }
+
+  .seed-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .seed-bar .bar-track {
+    width: 100%;
+    height: 70px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .seed-bar .bar-fill {
+    width: 100%;
+    border-radius: 2px 2px 0 0;
+    transition: height 0.3s;
+  }
+
+  .seed-bar .bar-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+
+  .seed-bar .bar-val {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 7.5px;
+    font-weight: 700;
+    color: var(--white);
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* ── STAT CALLOUTS ── */
+  .callout-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 6px;
+  }
+
+  .callout {
+    background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 4px;
+    padding: 8px 10px;
+    text-align: center;
+  }
+
+  .callout .c-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .callout .c-label {
+    font-size: 7.5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 2px;
+    line-height: 1.3;
+  }
+
+  /* ── KEY FEATURES ── */
+  .feature-list {
+    list-style: none;
+    margin-top: 4px;
+  }
+
+  .feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 5px;
+    font-size: 9.5px;
+  }
+
+  .feature-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: var(--orange);
+    line-height: 1;
+    min-width: 16px;
+  }
+
+  .feature-name {
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  /* ── PREDICTIONS TABLE ── */
+  .pred-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    margin-top: 5px;
+  }
+
+  .pred-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.03);
+    border-radius: 3px;
+    padding: 4px 8px;
+    font-size: 9px;
+  }
+
+  .pred-item .team-name { color: var(--ice); font-weight: 500; }
+  .pred-item .team-seed { color: var(--muted); font-size: 8px; margin-left: 3px; }
+  .pred-item .pred-pct { font-weight: 700; font-family: 'DM Sans', sans-serif; }
+  .pred-pct.high { color: #4ade80; }
+  .pred-pct.upset { color: var(--orange); }
+  .pred-pct.danger { color: var(--gold); }
+
+  .upset-tag {
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--orange);
+    padding: 1px 5px;
+    border-radius: 2px;
+    margin-left: 5px;
+  }
+
+  /* ── BOTTOM LINE ── */
+  .bottom-line {
+    padding: 0.15in 0.5in 0.25in;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .bottom-line-inner {
+    background: linear-gradient(135deg, rgba(255,107,43,0.08), rgba(255,200,87,0.04));
+    border: 1px solid rgba(255,107,43,0.2);
+    border-radius: 5px;
+    padding: 10px 16px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .bottom-line-icon {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    color: var(--orange);
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .bottom-line p {
+    font-family: 'Source Serif 4', serif;
+    font-size: 10.5px;
+    line-height: 1.55;
+    color: var(--ice);
+  }
+
+  .bottom-line strong { color: var(--gold); }
+
+  /* ── FOOTER ── */
+  .footer {
+    padding: 0 0.5in 0.2in;
+    display: flex;
+    justify-content: space-between;
+    font-size: 7.5px;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+  }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <div class="tag">Datathon 2026 &mdash; Executive Summary</div>
+      <h1>PREDICTING MARCH <span>MADNESS</span></h1>
+      <div class="subtitle">A Data-Driven Bracket Strategy for the 2026 NCAA Tournament</div>
+      <div style="font-size:8px;color:var(--muted);margin-top:4px;letter-spacing:0.3px;">
+        <strong style="color:var(--ice);">Team:</strong>
+        Daniel [Last Name], Computer Science + Biology &bull; dolusheki@brandeis.edu &nbsp;|&nbsp;
+        Heidy Naranjo, Computer Science &bull; heidynaranjo@brandeis.edu &nbsp;|&nbsp;
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="metric-box">
+        <div class="metric-val">0.188</div>
+        <div class="metric-label">Brier Score</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- THE CHALLENGE -->
+    <div class="section">
+      <div class="section-title">The Challenge</div>
+      <p>Can data predict tournament chaos? Using <strong style="color:var(--gold);">17 seasons</strong> of historical data (2008–2025), we analyzed <strong style="color:var(--gold);">1,070 tournament games</strong> to identify the measurable traits that separate deep runs from early exits — then projected those patterns onto the 2026 bracket.</p>
+      <div class="callout-row">
+        <div class="callout"><div class="c-num">17</div><div class="c-label">Seasons<br>Analyzed</div></div>
+        <div class="callout"><div class="c-num">1,070</div><div class="c-label">Tournament<br>Games</div></div>
+        <div class="callout"><div class="c-num">48</div><div class="c-label">Predictive<br>Features</div></div>
+      </div>
+    </div>
+
+    <!-- SEED WIN RATES -->
+    <div class="section">
+      <div class="section-title">Seed Win Rates (2008–2025)</div>
+      <div class="seed-chart">
+        <div class="seed-bar">
+          <div class="bar-track"><div class="bar-fill" style="height:80%;background:linear-gradient(to top,#ff6b2b,#ffc857);"><span class="bar-val">80%</span></div></div>
+          <div class="bar-label">#1</div>
+        </div>
+        <div class="seed-bar">
+          <div class="bar-track"><div class="bar-fill" style="height:69%;background:linear-gradient(to top,#ff6b2b,#ff8f5e);"><span class="bar-val">69%</span></div></div>
+          <div class="bar-label">#2</div>
+        </div>
+        <div class="seed-bar">
+          <div class="bar-track"><div class="bar-fill" style="height:66%;background:linear-gradient(to top,#e8692c,#ff8f5e);"><span class="bar-val">66%</span></div></div>
+          <div class="bar-label">#3</div>
+        </div>
+        <div class="seed-bar">
+          <div class="bar-track"><div class="bar-fill" style="height:62%;background:linear-gradient(to top,#c75a28,#e87d4a);"><span class="bar-val">62%</span></div></div>
+          <div class="bar-label">#4</div>
+        </div>
+        <div class="seed-bar">
+          <div class="bar-track"><div class="bar-fill" style="height:52%;background:linear-gradient(to top,#8a9bb5,#b0bfcf);"><span class="bar-val">52%</span></div></div>
+          <div class="bar-label">#5</div>
+        </div>
+        <div class="seed-bar">
+          <div class="bar-track"><div class="bar-fill" style="height:47%;background:linear-gradient(to top,#8a9bb5,#a0afc5);"><span class="bar-val">47%</span></div></div>
+          <div class="bar-label">#11</div>
+        </div>
+        <div class="seed-bar">
+          <div class="bar-track"><div class="bar-fill" style="height:35%;background:linear-gradient(to top,#6b7a90,#8a9bb5);"><span class="bar-val">35%</span></div></div>
+          <div class="bar-label">#12</div>
+        </div>
+        <div class="seed-bar">
+          <div class="bar-track"><div class="bar-fill" style="height:3%;background:linear-gradient(to top,#3d4a5c,#6b7a90);"><span class="bar-val" style="color:var(--muted);">3%</span></div></div>
+          <div class="bar-label">#16</div>
+        </div>
+      </div>
+      <p style="margin-top:6px;font-size:8.5px;color:var(--muted);"><strong style="color:var(--orange-glow);">11-seeds</strong> are the Cinderella sweet spot — a 46.5% win rate and four Elite Eight appearances. The classic 5-vs-12 upset hits 35% of the time.</p>
+      <p style="font-size:8.5px;color:var(--muted);margin-top:3px;"><strong style="color:var(--gold);">Over-performers:</strong> <strong style="color:var(--ice);">Michigan State</strong> &amp; <strong style="color:var(--ice);">Syracuse</strong> routinely exceed their seed; <strong style="color:var(--ice);">Loyola Chicago</strong> &amp; <strong style="color:var(--ice);">VCU</strong> are classic Cinderella runs. <strong style="color:var(--orange-glow);">Under-performers:</strong> <strong style="color:var(--ice);">Virginia</strong> (1-seed upset by 16 UMBC), <strong style="color:var(--ice);">Kansas</strong> &amp; <strong style="color:var(--ice);">Gonzaga</strong> have had early exits despite top seeds.</p>
+    </div>
+
+    <!-- TOP FEATURES -->
+    <div class="section">
+      <div class="section-title">What Actually Predicts Wins</div>
+      <p style="font-size:9px;color:var(--muted);margin-bottom:4px;">The 3 most predictive features are <em>not</em> what casual fans expect:</p>
+      <ol class="feature-list">
+        <li>
+          <span class="feature-num">1</span>
+          <div><span class="feature-name">Momentum</span> — Teams improving most from preseason KenPom projections are peaking at the right time. Late-season trajectory matters more than where you started.</div>
+        </li>
+        <li>
+          <span class="feature-num">2</span>
+          <div><span class="feature-name">Free Throw %</span> — In tournament pressure, games are decided at the line. Elite FT shooting is the strongest indicator of clutch execution.</div>
+        </li>
+        <li>
+          <span class="feature-num">3</span>
+          <div><span class="feature-name">Assist Rate</span> — Ball movement breaks down tournament defenses. Iso-heavy teams struggle against the tighter, more physical play of March.</div>
+        </li>
+      </ol>
+    </div>
+
+    <!-- 2026 PREDICTIONS -->
+    <div class="section">
+      <div class="section-title">2026 Predictions — Full Bracket</div>
+
+      <!-- Champion callout -->
+      <div style="background:linear-gradient(135deg,rgba(255,107,43,0.15),rgba(255,200,87,0.08));border:1px solid rgba(255,107,43,0.35);border-radius:4px;padding:7px 10px;margin-bottom:6px;display:flex;align-items:center;gap:10px;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--orange);line-height:1;">CHAMPION</div>
+        <div style="font-size:10px;color:var(--ice);line-height:1.4;"><strong style="color:var(--gold);font-size:12px;">(1) Duke</strong> over (1) Arizona — 61.1% in the title game.<br>
+        <strong style="color:var(--gold);">Final Four:</strong> Duke, Illinois (3), Arizona, Michigan</div>
+      </div>
+
+      <p style="font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:3px;">Key Round of 64 Calls</p>
+      <div class="pred-grid">
+        <div class="pred-item"><span><span class="team-name">Iowa over Clemson</span></span><span class="pred-pct upset">59.9%</span><span class="upset-tag">9 &gt; 8</span></div>
+        <div class="pred-item"><span><span class="team-name">Santa Clara over Kentucky</span></span><span class="pred-pct upset">57.4%</span><span class="upset-tag">10 &gt; 7</span></div>
+      </div>
+
+      <p style="font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--gold);font-weight:700;margin:5px 0 3px;">Vulnerable Favorites</p>
+      <div class="pred-grid">
+        <div class="pred-item"><span><span class="team-name">Louisville</span><span class="team-seed">(6) vs S. Florida</span></span><span class="pred-pct danger">58.9%</span></div>
+        <div class="pred-item"><span><span class="team-name">North Carolina</span><span class="team-seed">(6) vs VCU</span></span><span class="pred-pct danger">57.3%</span></div>
+      </div>
+
+      <p style="font-size:8px;color:var(--muted);margin-top:4px;"><strong style="color:#4ade80;">Hidden value:</strong> Nebraska (4) at 94.5% and Arkansas (4) at 94.8% — safer than most 2-seeds.</p>
+    </div>
+
+    <!-- APPROACH -->
+    <div class="section section-full">
+      <div class="section-title">Our Approach</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;">
+        <div class="callout" style="text-align:left;padding:8px 10px;">
+          <div style="font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:3px;">Data</div>
+          <div style="font-size:9px;line-height:1.5;color:var(--ice);">KenPom, BartTorvik, 538, EvanMiya, Elo ratings, conference stats — <strong style="color:var(--gold)">pre-tournament only</strong> to prevent data leakage.</div>
+        </div>
+        <div class="callout" style="text-align:left;padding:8px 10px;">
+          <div style="font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:3px;">Features</div>
+          <div style="font-size:9px;line-height:1.5;color:var(--ice);">Four Factors (eFG%, TO%, ORB%, FTR), adjusted efficiency, momentum, Elo, resume quality — <strong style="color:var(--gold)">48 total differentials</strong>.</div>
+        </div>
+        <div class="callout" style="text-align:left;padding:8px 10px;">
+          <div style="font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:3px;">Models</div>
+          <div style="font-size:9px;line-height:1.5;color:var(--ice);">4-model ensemble: <strong style="color:var(--gold)">LightGBM + CatBoost</strong> blended with Logistic Regression and a seed-anchored baseline to prevent overconfidence.</div>
+        </div>
+        <div class="callout" style="text-align:left;padding:8px 10px;">
+          <div style="font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:3px;">Validation</div>
+          <div style="font-size:9px;line-height:1.5;color:var(--ice);">Season-based cross-validation ensures the model never trains on future data. <strong style="color:var(--gold)">Isotonic calibration</strong> aligns probabilities with reality.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM LINE -->
+  <div class="bottom-line">
+    <div class="bottom-line-inner">
+      <div class="bottom-line-icon">THE<br>BOTTOM<br>LINE</div>
+      <p>The tournament isn't random — it's predictable if you look beyond seeds. <strong>Teams that peak late, shoot free throws under pressure, and move the ball</strong> are the ones cutting down nets. Our model captures this with mathematical precision, delivering a Brier Score of <strong>0.188</strong> across 17 seasons of backtesting — giving bracket-makers a measurable, data-driven edge over chalk.</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Datathon 2026 &bull; Brandeis University</span>
+    <span>Model: LightGBM + CatBoost + LR Ensemble &bull; 48 Features &bull; Season-Based CV</span>
+    <span>Contact: kristenbabineau@brandeis.edu</span>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+ROUND,Team_A,Seed_A,Team_B,Seed_B,P(A wins),P(B wins),Predicted Winner
+64,Duke,1,Siena,16,0.98,0.02,Duke
+64,Ohio St.,8,TCU,9,0.5962,0.4038,Ohio St.
+64,St. John's,5,Northern Iowa,12,0.8901,0.10989999999999998,St. John's
+64,Kansas,4,Cal Baptist,13,0.8509,0.1491,Kansas
+64,Louisville,6,South Florida,11,0.5209,0.4791,Louisville
+64,Michigan St.,3,North Dakota St.,14,0.8367,0.1633,Michigan St.
+64,UCLA,7,UCF,10,0.61,0.39,UCLA
+64,Connecticut,2,Furman,15,0.9611000000000001,0.038900000000000004,Connecticut
+64,Florida,1,Lehigh,16,0.9407,0.05929999999999999,Florida
+64,Florida,1,Prairie View A&M,16,0.9265,0.0735,Florida
+64,Clemson,8,Iowa,9,0.3946,0.6054,Iowa
+64,Vanderbilt,5,McNeese St.,12,0.7424000000000001,0.2576,Vanderbilt
+64,Nebraska,4,Troy,13,0.9455,0.05449999999999999,Nebraska
+64,North Carolina,6,VCU,11,0.6189,0.3811,North Carolina
+64,Illinois,3,Penn,14,0.7704,0.2296,Illinois
+64,Saint Mary's,7,Texas A&M,10,0.6367,0.3633,Saint Mary's
+64,Houston,2,Idaho,15,0.9541000000000001,0.045899999999999996,Houston
+64,Arizona,1,LIU Brooklyn,16,0.9611000000000001,0.038900000000000004,Arizona
+64,Villanova,8,Utah St.,9,0.599,0.401,Villanova
+64,Wisconsin,5,High Point,12,0.8771,0.1229,Wisconsin
+64,Arkansas,4,Hawaii,13,0.9474,0.052599999999999994,Arkansas
+64,BYU,6,North Carolina St.,11,0.4744,0.5256,North Carolina St.
+64,BYU,6,Texas,11,0.5935,0.4065,BYU
+64,Gonzaga,3,Kennesaw St.,14,0.8873,0.11270000000000001,Gonzaga
+64,Miami FL,7,Missouri,10,0.7611,0.23890000000000003,Miami FL
+64,Purdue,2,Queens,15,0.9107000000000001,0.08929999999999999,Purdue
+64,Michigan,1,Howard,16,0.9172,0.0828,Michigan
+64,Michigan,1,UMBC,16,0.9346,0.0654,Michigan
+64,Georgia,8,Saint Louis,9,0.5733,0.4267,Georgia
+64,Texas Tech,5,Akron,12,0.8328,0.16720000000000002,Texas Tech
+64,Alabama,4,Hofstra,13,0.8447,0.15530000000000002,Alabama
+64,Tennessee,6,SMU,11,0.6076,0.3924,Tennessee
+64,Tennessee,6,Miami OH,11,0.7907000000000001,0.2093,Tennessee
+64,Virginia,3,Wright St.,14,0.9391,0.060899999999999996,Virginia
+64,Kentucky,7,Santa Clara,10,0.4518,0.5482,Santa Clara
+64,Iowa St.,2,Tennessee St.,15,0.9417,0.05829999999999999,Iowa St.
+32,Duke,1,Ohio St.,8,0.9391,0.060899999999999996,Duke
+32,Duke,1,TCU,9,0.9404,0.0596,Duke
+32,Kansas,4,St. John's,5,0.4337,0.5663,St. John's
+32,Michigan St.,3,Louisville,6,0.6045,0.3955,Michigan St.
+32,Michigan St.,3,South Florida,11,0.7039,0.2961,Michigan St.
+32,Connecticut,2,UCLA,7,0.7653,0.2347,Connecticut
+32,Connecticut,2,UCF,10,0.8407,0.1593,Connecticut
+32,Florida,1,Clemson,8,0.7879,0.2121,Florida
+32,Florida,1,Iowa,9,0.6608,0.3392,Florida
+32,Nebraska,4,Vanderbilt,5,0.4956,0.5044,Vanderbilt
+32,Illinois,3,North Carolina,6,0.7411,0.25889999999999996,Illinois
+32,Illinois,3,VCU,11,0.8774000000000001,0.1226,Illinois
+32,Houston,2,Saint Mary's,7,0.787,0.21300000000000002,Houston
+32,Houston,2,Texas A&M,10,0.8906000000000001,0.10939999999999998,Houston
+32,Arizona,1,Villanova,8,0.9051,0.0949,Arizona
+32,Arizona,1,Utah St.,9,0.9305,0.06949999999999999,Arizona
+32,Arkansas,4,Wisconsin,5,0.5863,0.4137,Arkansas
+32,Gonzaga,3,BYU,6,0.7452,0.25479999999999997,Gonzaga
+32,Gonzaga,3,North Carolina St.,11,0.6559,0.3441,Gonzaga
+32,Gonzaga,3,Texas,11,0.6968,0.30319999999999997,Gonzaga
+32,Purdue,2,Miami FL,7,0.6377,0.3623,Purdue
+32,Purdue,2,Missouri,10,0.8255,0.17450000000000002,Purdue
+32,Michigan,1,Georgia,8,0.9145,0.08549999999999999,Michigan
+32,Michigan,1,Saint Louis,9,0.9587,0.0413,Michigan
+32,Alabama,4,Texas Tech,5,0.5026,0.4974,Alabama
+32,Virginia,3,Tennessee,6,0.6591,0.3409,Virginia
+32,Virginia,3,SMU,11,0.7357,0.2643,Virginia
+32,Virginia,3,Miami OH,11,0.9104,0.0896,Virginia
+32,Iowa St.,2,Kentucky,7,0.7673,0.2327,Iowa St.
+32,Iowa St.,2,Santa Clara,10,0.6193,0.3807,Iowa St.
+16,Duke,1,Kansas,4,0.9326,0.0674,Duke
+16,Duke,1,St. John's,5,0.7972,0.2028,Duke
+16,Florida,1,Nebraska,4,0.6077,0.3923,Florida
+16,Florida,1,Vanderbilt,5,0.643,0.357,Florida
+16,Arizona,1,Arkansas,4,0.7026,0.2974,Arizona
+16,Arizona,1,Wisconsin,5,0.8644000000000001,0.1356,Arizona
+16,Michigan,1,Alabama,4,0.8265,0.17350000000000002,Michigan
+16,Michigan,1,Texas Tech,5,0.833,0.167,Michigan
